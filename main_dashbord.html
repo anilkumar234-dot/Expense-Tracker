@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<head>
+    <title>EP Dashboard</title>
+    <body>
+        <style>
+            body{
+                background-color: whitesmoke;
+            }
+            .options{
+        
+                border: 1px solid black;
+                background-color: rgb(7, 62, 7);
+                height: 700px;
+                width: 200px;
+        
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                flex-shrink: 0;
+
+                margin-left: -210px;
+            }
+            .op{
+                border-bottom: none;
+                background: linear-gradient(135deg, rgba(6, 45, 18, 0.4) 0%, rgba(3, 27, 10, 0.6) 100%);
+                box-shadow: #ffffff;
+                padding: 10px ;
+
+            }
+            .user-p h2{
+                background-color: #ffffff;
+                border: 1px solid black;
+                border-radius: 50%;
+
+                width: 35px;
+                height: 35px;
+                text-align: center;
+
+                margin-left: 2px;
+                margin-top: 0;
+                margin-bottom: 0;
+
+                font-size: 25px;
+
+            }
+
+            .user-p p{
+                color: white;
+                margin-left: 45px;
+                margin-top: -35px;
+                font-size: small;
+            }
+            .user-p h4{
+                color: white;
+                margin-left: 45px;
+                margin-top: -16px;
+                font-size: 20px;
+            }
+            .list h3{
+                color: white;
+            }
+            .note h4{
+                color: white;
+            }
+            .note p{
+                color: gray;
+            }
+            .list{
+                margin-left: 2%;
+                font-size: 10px;
+
+                display: flex;
+                flex-direction: column;
+
+                gap: 6px;
+                
+
+                cursor: pointer;
+
+            }
+            .list h3{
+                color: white;
+                font-size: 13px;
+                font-weight: normal;
+                margin: 0;
+                
+                padding: 8px 12px;
+                width: 90%;
+                box-sizing: border-box;
+
+                display:flex ;
+                box-sizing: border-box;
+                transition: all 0.2s ease;
+
+            }
+            .list h3:hover{
+                color: green;
+                font-weight: bold;
+                background: linear-gradient(135deg, rgba(6, 45, 18, 0.4) 0%, rgba(3, 27, 10, 0.6) 100%);
+                border-radius: 5px;
+                
+                box-shadow: 0 0 12px rgba(34, 197, 94, 0.2);
+
+               
+
+                
+              
+            }
+            .note{
+                margin-left: 5%;
+                margin-top: 130px;
+
+                
+            
+                
+               
+                background: linear-gradient(135deg, rgba(6, 45, 18, 0.4) 0%, rgba(3, 27, 10, 0.6) 100%);
+                border: rgba(34, 197, 94, 0.25) ;
+                box-shadow: 0 0 12px rgba(34, 197, 94, 0.2);
+                border-radius: 5px;
+                box-shadow: #ffffff;
+
+                width: 85%;
+                height: 65px;
+                padding: 3px;
+
+                box-sizing: border-box;
+                position: relative;
+
+            
+            }
+            .note h3{
+                font-size: 15px;
+                margin-top: 13px;
+                margin-left: -12px;
+            }
+            .note h4{
+                margin-top: -37px;
+                margin-bottom: -10px;
+                margin-left: 15%;
+
+                font-size: 12px;
+            }
+            .note p{
+                margin-left: 15%;
+                font-size: 10px;
+                color: #94a3b8;
+            }
+            .line3{
+                margin-left: -1%;
+                margin-top: -46.15%;
+
+                height: 30px;
+                width: 101.5%;
+
+                display: flex;
+                align-items: center;
+    
+
+                border-bottom: none;
+                box-sizing: border-box;
+
+                background-color: white;
+                box-shadow: black;
+
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+                box-shadow: 0px 8px 12px rgba(0,0,0,0.5);
+            }
+            .line3 h4{
+                margin-left: 15px;
+                cursor: pointer;
+
+        
+            }
+
+            .sidebar-hidden .options{
+                margin-left: 0px;
+            }
+            .sidebar-hidden .line3{
+                margin-left: 13.3% !important;
+                margin-top: -46.15%;
+                width: 87.25% !important;
+
+                
+            }
+            .t-exp{
+                font-size: 20px;
+
+                margin-top: 250px;
+                margin-left: -98.5%;
+
+                border: none;
+                background-color: white;
+                border-radius: 8px;
+                
+                width: 15%;
+                height: 250%;
+
+                box-shadow: 0px 8px 12px rgba(0,0,0,0.5);
+
+            }
+            .t-tra, .this-m, .dayly-avg{
+                font-size: 20px;
+
+                margin-top: 250px;
+
+                border: none;
+                background-color:#ffffff;
+                border-radius: 8px;
+                
+                width: 16%;
+                height: 250%;
+                margin-left: 15.5px;
+
+                box-shadow: 0px 8px 12px rgba(0,0,0,0.5);
+
+            
+
+            }
+            .t-exp h3, .t-tra h3, .this-m h3, .dayly-avg h3{
+                margin-left: 12px;
+
+                border: 1px solid black;
+                border-radius: 8px;
+                border-style: dashed;
+
+                background-color: rgb(246, 215, 43);
+
+                width: 8%;
+
+                font-size: 20px;
+            }
+            .t-exp p,.t-tra p,.this-m p,.dayly-avg p{
+                margin-left: 50px;
+                margin-top: -20px;
+            }
+            .t-exp h4,.t-tra h4,.this-m h4,.dayly-avg h4{
+                margin-left: 50px;
+                margin-top: -60px;
+            }
+            
+            .for{
+                
+                border: none;
+
+                margin-top: 110px;
+
+                margin-left: -20px;
+
+                width: 99%;
+                height: 60px;
+            
+
+            }
+            .for h4{
+                margin-top: 0;
+            }
+            .for p{
+                margin-left: 15px;
+                margin-top: -20px;
+
+                font-size: 12px;
+            }
+            
+          
+            .profile-layout h4{
+                font-size: 20px;
+                margin-top: 0;
+                margin-bottom: 3px;
+            }
+            
+
+            
+            .pro{
+                display: flex;
+                gap: 180px;
+
+                font-weight: 500;
+                font-size: large;
+
+                color: #0a3e86;
+                
+            }
+            .u-name{
+                display: flex;
+        
+                gap: 180px;
+                font-size: large;
+
+                margin-top: -30px;
+            }
+            .u-name p{
+                border: no;
+                border-radius: 8px;
+
+                margin-right: -75px;
+
+                width: 80px;
+                height: 25px;
+                padding: 3px;
+
+                align-content: center;
+                text-align: center;
+
+                font-weight: bolder;
+                color: green;
+                background-color: rgb(184, 247, 184);
+            }
+            .dell button{
+                border: no;
+                border-radius: 8px;
+
+                margin-right: -5px;
+
+                width: 80px;
+                height: 25px;
+                padding: 3px;
+
+                align-content: center;
+                text-align: center;
+
+                font-weight: bolder;
+                color: green;
+                background-color: rgb(184, 247, 184);
+            }
+            .uu p{
+                border: none;
+                border-color: darkgreen;
+                width: 150px;
+                height: 25px;
+                align-content: center;
+                text-align: start;
+
+                padding-left: 10px;
+                
+
+                background-color: rgb(205, 205, 205);
+                color: black;
+                box-shadow: red;
+            }
+            .dell button{
+                color: #131212;
+                background-color: rgb(245, 134, 134);
+                border-color: red;
+                border: none;
+                box-shadow: black;
+
+                margin-left: 110px;
+                margin-top: 16px;
+
+                height: 30px;
+
+                font-weight: 800PX;
+                cursor: pointer;
+
+                align-content: center;
+                text-align: center;
+            }
+            .dell button:hover{
+                color: #ffffff;
+                background-color: red;
+            }
+            
+            .v-expense h3{
+                mask-repeat: no-repeat;
+                padding-left: 20px;
+                margin-top: 0px;
+                margin-bottom: 2px;
+
+                height: 30px;
+
+                border-top: none;
+                background-color: rgb(62, 238, 62);
+                border-radius: 8px 8px 0 0;
+                box-shadow: black;
+        
+                
+            }
+            
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                table-layout: fixed;
+                background-color: rgb(187, 230, 187);
+                
+            }
+            thead{
+                background-color: rgb(187, 230, 187);
+                position: sticky; 
+                top: 0;
+            }
+
+
+            thead th {
+                padding: 10px;
+                text-align: left;
+                font-weight: bold;
+            }
+
+            .table-wrapper {
+                max-height: 500px; 
+                overflow-y: auto;
+                width: 100%;
+
+                overflow-y: scroll;
+            }
+        
+
+            .v-table{
+                
+                display: flex;
+                flex-direction: column;
+                height: 800px;
+
+        
+            }
+
+            .cate, .profile-layout, .category-fill, .reports, .v-expense{
+                display: none;
+                border: none;
+                border-radius: 8px;
+                box-shadow: 0px 8px 12px rgba(0,0,0,0.5);
+                background-color: #ffffff;
+
+                margin-top: -680px;
+                padding: 10px;
+
+                margin-left: 220px;
+                height: 650px;
+
+                overflow: hidden;
+
+            }
+            .edit-expense{
+                display: none;
+                margin-top: -400px;
+                padding: 10px;
+                margin-left: 220px;
+                width: 80%;
+            
+            }
+            .cate h3{
+                border: none;
+                border-radius: 8px 8px 0 0;
+                background-color: rgb(36, 222, 36);
+
+                width: 100% ;
+                height: 30px;
+
+                margin-left: -10px;
+                margin-top: 0px;
+
+                padding-left: 20px;
+                font-size: larger;
+
+                display: flex;
+                align-items: center;
+            }
+
+           .cate button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+
+            width: 22%;
+            height: 30px;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            background-color: rgb(138, 248, 138);
+            border: none;
+            border-radius: 8px;
+           }
+           .cate button:hover{
+            background-color: green;
+            color: #ffffff;
+           }
+
+           .CATE h3{
+                border: none;
+                
+                background-color: rgb(36, 222, 36);
+
+                width: 98.5% ;
+                height: 30px;
+
+                margin-left: 0px;
+                margin-top: 10px;
+                margin-bottom: 2px;
+
+                padding-left: 20px;
+                font-size: larger;
+
+                display: flex;
+                align-items: center;
+            }
+            .reports h4{
+                border: none;
+                border-radius: 8px 8px 0 0;
+                background-color: rgb(36, 222, 36);
+
+                width: 100% ;
+                height: 30px;
+
+                margin-left: -10px;
+                margin-top:-10px;
+
+                padding-left: 20px;
+                font-size: larger;
+
+                display: flex;
+                align-items: center;
+            }
+    
+            .bokka{
+                display: flex;
+                gap: 20px;
+            }
+            .bokka h4{
+                color: black;
+                font-weight: bold;
+
+                font-size: large;
+            }
+
+            .bokka button, .report button{
+                margin-left: 10px;
+
+                width: 150px; 
+                height: 20px;
+
+                margin-top: 24px; 
+
+                background-color: rgb(137, 234, 137); 
+                border: none; 
+                border-radius: 8px; 
+
+                font-weight: bold; 
+                cursor: pointer;
+            }
+            .bokka button:hover, .report button:hover{
+                color: white;
+                background-color: green;
+            
+            }
+            .report select{
+
+                margin-left: 0px; 
+            
+                width: 170px; 
+                height: 23px;
+
+            }
+            .report p{
+                margin-bottom: -15px;
+            }
+            .month-tb, .yr-tb{
+                border: none;
+                border-radius: 5px;
+                background-color: rgb(232, 233, 245);
+                box-shadow: 0px 8px 12px rgba(0,0,0,0.4);
+                display: none;
+
+                margin-left: 450px;
+                margin-top: -120px;
+
+                width: 60%;
+
+                padding: 20px;
+            }
+            
+            
+            .pooja, .pooja-a{
+                display: flex;
+                font-weight: bold;
+                
+
+                font-size: 15px;
+
+                gap: 30px;
+
+                
+            }
+            .pooja p, .pooja-a p{
+                border: none;
+                background-color: rgb(186, 184, 184) ;
+                border-radius: 8px;
+                box-shadow: #0a3e86;
+
+                text-align: center;
+                align-items: center;
+                
+
+                width:100px;
+                height: 20px;
+
+                margin-top: 18px;
+
+                font-size: medium;
+            }
+            .expense-delete{
+                margin-top: -310px;
+                background-color: #ffffff;
+                border-radius: 8px;
+                box-shadow: 20px black;
+
+                padding-left: 20px;
+
+                box-shadow: 0px 8px 12px rgba(0,0,0,0.5);
+              
+            }
+            .expense-delete input{
+                margin-bottom: 10px;
+                margin-top: 5px;
+                width: 49.6%;
+
+                background-color: rgb(169, 245, 188);
+                color: #000;
+
+                border: none;
+                border-radius: 2px;
+
+                font-weight:bold ;
+
+                padding: 5px;
+
+
+            }
+            .expense-delete button{
+                margin-bottom: 20px;
+
+                width: 50.4%;
+
+                background-color: rgb(169, 245, 188);
+                color: #000;
+
+                border: none;
+                border-radius: 2px;
+
+                font-weight:bold ;
+
+                box-shadow: #000;
+                padding: 5px;
+            }
+            .expense-delete button:hover{
+                color: white;
+                background-color: red;
+            }
+            .expense-delete label{
+                font-size: larger;
+
+                margin-bottom: 10px;
+                
+            }
+            .expense-delete h3{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 20px;
+
+                border: none;
+                background-color:rgb(58, 240, 58);
+                border-radius: 8px 8px 0 0;
+                box-shadow: red;
+
+                margin-left: -20px;
+                
+            }
+            .edit{
+                background-color: #ffffff;
+    
+                border-radius: 8px;
+                box-shadow: 20px black;
+
+                padding-left: 20px;
+
+                box-shadow: 0px 8px 12px rgba(0,0,0,0.5);
+
+            }
+            .edit h3{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 20px;
+
+                border: none;
+                background-color:rgb(58, 240, 58);
+                border-radius: 8px 8px 0 0;
+                box-shadow: red;
+
+                margin-left: -20px;
+            
+            }
+            .edit button{
+                background-color: rgb(169, 245, 188);
+                color: #000;
+
+                width: 22%;
+                height: 20px;
+
+                font-weight: bold;
+
+                border: none;
+                border-radius: 2px;
+                box-shadow: #131212;
+            }
+            .edit button:hover{
+                color: #ffffff;
+                background-color: green;
+            }
+            .shit-category{
+                border: none;
+                background-color: #cddcf3;
+                box-shadow: 0px 8px 12px rgba(0,0,0,0.4) ;
+
+            }
+        </style>
+        <div id="op-bar" class="options">
+            <h4 class="op" style="color: #ffffff;">💼 Expense <span style="color: rgb(7, 254, 7);">Tracker</span></h4>
+            <div class="user-p">
+                <h2>👤</h2> 
+                <p>Welcome,</p>
+                <h4 id="sidebar-username"></h4>
+            </div>
+            <div class="list">
+                <h3 id="dash-link">💻 Dashboard</h3>
+                <h3 id="add-e">➕ Add Expense</h3>
+                <h3 id="V-E">📊 View Expenses</h3>
+                <h3 id="category-vise">🎛️ Category-Wise</h3>
+                <h3 id="Report-wise">📜 Reports</h3>
+                <h3 id="manage-expense">⚙️ Manage Expenses</h3>
+                <h3 id="prof">👤 Profile</h3>
+                <h3 id="log">📴 Logout</h3>
+       
+        <div class="note">
+            <h3>🛡️</h3>
+            <h4>Your data is safe</h4>
+            <p>All your data is encrypted and secure</p>
+        </div>
+            </div>
+        </div>
+
+
+        <div class="dashcoard-p" id="dashb">
+        <div id="l3"  class="line3">
+            <h4>☰</h4>
+            <div class="for">
+                <h4>Welcome back, <span id="header-username">👋</span></h4>
+                <p>Here's What's happening with your expenses today.</p>
+            </div>
+            <div class="t-exp">
+                <h3>💵</h3>
+                <h4>Total Expenses</h4>
+                <p id="total-e" style="color: rgb(83, 245, 83); font-size: medium; margin-left: 52px; font-weight: bold; border:none; border-radius: 5px; width: 80px; text-align: center; background-color: #ffffff; box-shadow: 0px 5px 2px;"></p>
+            </div>
+                <div class="t-tra">
+                    <h3 style="background-color: rgb(240, 70, 13);">📑</h3>
+                    <h4>Total Transactions</h4>
+                    <p id="total-tra" style="color: rgb(83, 245, 83); font-size: medium; margin-left: 52px; font-weight: bold; border:none; border-radius: 5px; width: 80px; text-align: center; background-color: #ffffff; box-shadow: 0px 5px 2px;"></p>
+                </div>
+                    <div class="this-m">
+                        <h3 style="background-color: gold;">📅</h3>
+                        <h4>This Month</h4>
+                        <p id="this-month-total" style="color: rgb(83, 245, 83); font-size: medium; margin-left: 52px; font-weight: bold; border:none; border-radius: 5px; width: 80px; text-align: center; background-color: #ffffff; box-shadow: 0px 5px 2px;">$0.00</p>
+                    </div>
+                        <div class="dayly-avg">
+                            <h3 style="background-color: rgb(240, 70, 13);">📈</h3>
+                            <h4>Daily Average</h4>
+                            <p id="d-avg" style="color: rgb(83, 245, 83); font-size: medium; margin-left: 52px; font-weight: bold; border:none; border-radius: 5px; width: 80px; text-align: center; background-color: #ffffff; box-shadow: 0px 5px 2px;">$0.00</p>
+        </div>   </div> 
+         </div>
+                        <div class="v-expense" id="viewE">
+                            <div class="v-table">
+                                <h3>All Expenses</h3>
+                                <div class="table-wrapper">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 8%; background-color: gold;">id</th>
+                                                <th style="width: 15%; background-color: gold;">Spent On</th>
+                                                <th style="width: 12%; background-color: gold;">Price</th>
+                                                <th style="width: 15%; background-color: gold;">Category</th>
+                                                <th style="width: 12%; background-color: gold;">Month</th>
+                                                <th style="width: 10%; background-color: gold;">Date</th>
+                                                <th style="width: 10%; background-color: gold;">Year</th>
+                                                <th style="width: 18%; background-color: gold;">Time</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody id="p-t"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    
+        
+        
+
+
+        <div class="profile-layout" id="profile">
+            <h4>Profile</h4>
+            <div class="pro">
+                <p>Username</p>
+                <p>Account Status</p>
+                <p>Delete My Account</p>
+            </div>
+            
+            <div class="u-name">
+                <div class="uu">
+                    <p id="uSername"></p>
+                </div>
+                <p>Active</p>
+                <div class="dell">
+                    <button id="delete-account">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cate" id="addd">
+            <div class="c">
+                <h3>Add Expense</h3>
+                <label>Spent On</label>
+                <input id="spe_on"  type="text" placeholder="" style="margin-left: 33px; width: 14%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;"><br><br>
+
+                <label>Price</label>
+                <input id="pri"  type="number" placeholder="" style="margin-left: 60px; width: 14%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;"><br><br>
+
+                <label>Category</label>
+                <select id="cat" style="margin-left: 33px; width: 14.4%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;">
+                    <option value="Electronics">Electronics</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Kirana Saman">Kirana Saman</option>
+                    <option value="Alcohol">Alcohol</option>
+                    <option value="Cool Drinks">Cool Drinks</option>
+                    <option value="Food">Food</option>
+                    <option value="Fast-Food">Fast-Food</option>
+                    <option value="Snacks">Snacks</option>
+                    <option value="Foot Wear">Foot Wear</option>
+                    <option value="Cloths">Cloths</option>
+                    <option value="Bakery-item">Bakery item</option>
+                    <option value="Chocolate">Chocolate</option>
+                    <option value="Toys">Toys</option>
+                    <option value="Fuel">Fuel</option>
+                    <option value="Cigarate">Cigarate</option>
+                </select><br><br>
+
+
+                <label>Month</label>
+                <select id="mon"   type="text" placeholder="" style="margin-left: 50px; width: 14.4%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;">
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select><br><br>
+
+                <label>Date</label>
+                <input id="dat"  type="number" placeholder="" style="margin-left: 63px; width: 14%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;"><br><br>
+
+                <label>Year</label>
+                <select id="yr"  type="number" placeholder="" style="margin-left: 63px; width: 14.4%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;">
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                </select><br><br>
+
+                <label>Time</label>
+                <input id="tim" type="text" placeholder="" style="margin-left: 60px; width: 14%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;"><br><br>
+
+                <button  type="submit" id="suub">Add</button>
+
+            </div>
+        </div>
+
+        <div class="category-fill" id="caTE">
+            <div class="CATE">
+                <div class="bokka">
+                    <h4>Category :</h4>
+                    <select id="select-category" style="margin-left: -10px; width: 170px; height: 20px; margin-top: 24px;  box-shadow: #0a3e86; background-color: rgb(148, 246, 246); border: none; border-radius: 5px; padding-left: 5px;">
+                        <option value="" selected>---Select Category---</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Kirana Saman">Kirana Saman</option>
+                        <option value="Alcohol">Alcohol</option>
+                        <option value="Cool Drinks">Cool Drinks</option>
+                        <option value="Food">Food</option>
+                        <option value="Fast-Food">Fast-Food</option>
+                        <option value="Snacks">Snacks</option>
+                        <option value="Foot Wear">Foot Wear</option>
+                        <option value="Fuel">Fuel</option>
+                        <option value="Cloths">Cloths</option>
+                        <option value="Bakery-item">Bakery item</option>
+                        <option value="Chocolate">Chocolate</option>
+                        <option value="Toys">Toys</option>
+                        <option value="Entertainment" >Entertainment</option>
+                        <option value="Cigarate">Cigarate</option>
+                    </select>
+                    <button type="submit" id="ask-cate">Fetch</button>
+                </div>
+                <div class="shit-category">
+                <h3>Only Category: <span id="selected-category" style="margin-left: 10px; border: none; background-color: rgb(236, 234, 234); font-size: medium; width: 150px; height: 20px; border-radius: 5px; box-shadow: 0px 5px 10px rgba(0,0,0,0.4); padding-left: 10px;"></span></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 8%; background-color: gold;">id</th>
+                            <th style="width: 10%; background-color: gold;">Spent On</th>
+                            <th style="width: 10%; background-color: gold;">Price</th>
+                            <th style="width: 10%; background-color: gold;">Category</th>
+                            <th style="width: 10%; background-color: gold;">Month</th>
+                            <th style="width: 10%; background-color: gold;">Date</th>
+                            <th style="width: 10%; background-color: gold;">Year</th>
+                            <th style="width: 10%; background-color: gold;">Time</th>      
+                        </tr>
+                    </thead>
+                    <tbody id="category-t"></tbody>
+                </table>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="reports" id="report-wise">
+            <h4>Reports</h4>
+            <div class="report">
+                <p>Monthly Reports</p>
+                <select id="select-mon" style="background-color: rgb(148, 246, 246); border: none; border-radius: 5px;">
+                    <option value="" selected>---Select Month---</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+                <button type="submit" id="month-report">Fetch</button>
+            
+                
+                
+                <p>Yearly Reports</p>
+                <select id="select-yr" style="background-color: rgb(160, 243, 243); border: none; border-radius: 5px;">
+                    <option value="" selected>---Select Year---</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                </select>
+                <button type="submit" id="year-report">Fetch</button><br><br>
+            </div>
+            <div class="month-tb" id="mon-table-p">
+                <div class="pooja">
+                    <h5>Month:</h5>
+                    <p id="month-blank"></p>
+                    <h5 style="margin-left: 70px; ">Total Money Spent:</h5>
+                    <p id="mon-total" ></p>
+                </div>
+                <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 1%; background-color: gold;">S.NO</th> 
+                                <th style="width: 1%; background-color: gold;">Category</th>
+                                <th style="width: 1%; background-color: gold;">Total Money Spent</th>  
+                            </tr>
+                        </thead>
+                        <tbody id="Month-Yr"></tbody>
+                    </table>
+            </div>
+             <div class="yr-tb" id="yr-table-p">
+                <div class="pooja-a">
+                    <h5>Year:</h5>
+                    <p id="year-blank"></p>
+                    <h5 style="margin-left: 70px; ">Total Money Spent:</h5>
+                    <p id="yr-total" ></p>
+                </div>
+                <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 1%; background-color: gold;">S.NO</th> 
+                                <th style="width: 1%; background-color: gold;">Category</th>
+                                <th style="width: 1%; background-color: gold;">Total Money Spent</th>  
+                            </tr>
+                        </thead>
+                        <tbody id="Yr-Month"></tbody>
+                    </table>
+            </div>
+            
+        </div>
+
+            <div class="edit-expense" id="edit-expense">
+                <div id="edit-full">
+                <div class="expense-delete">
+                    <h3>Delete Expense</h3><br>
+                    <label>Id:</label><br>
+                    <input type="number" id="id-input" placeholder="Enter id">
+                    <button type="button" id="delete-expense">Delete Spent On</button>
+                </div>
+
+                <div class="edit" id="edit">
+
+                    <h3>Edit Expense</h3>
+                    <label>Id<span style="color: red;">*</span></label>
+                    <input id="id-to-edit" type="number" placeholder="Enter id to Edit" style="margin-left: 70px; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; width: 14%; border-radius: 2px;"><br><br>
+
+                    <label>Spent_On</label>
+                    <input id="spent-edit"  type="text" placeholder="Enter Spent_on to Edit" style="margin-left: 29px; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; width: 14%; border-radius: 2px;"><br><br>
+
+                    <label>Price</label>
+                    <input id="price-edit" type="number" placeholder="Enter Price to Edit" style="margin-left: 60px; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; width: 14%; border-radius: 2px;"><br><br>
+
+                    <label >Category</label>
+                    <select id="category-edit" style="margin-left: 33px; width: 14%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;">
+                        <option value="" selected>---Select Category---</option>
+                        <option>Electronics</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Kirana Saman">Kirana Saman</option>
+                        <option value="Alcohol">Alcohol</option>
+                        <option value="Cool Drinks">Cool Drinks</option>
+                        <option value="Food">Food</option>
+                        <option value="Fast-Food">Fast-Food</option>
+                        <option value="Snacks">Snacks</option>
+                        <option value="Foot Wear">Foot Wear</option>
+                        <option value="Fuel">Fuel</option>
+                        <option value="Cloths">Cloths</option>
+                        <option value="Cigarate">Cigarate</option>
+                        <option value="Bakery-item">Bakery item</option>
+                        <option value="Chocolate">Chocolate</option>
+                        <option value="Toys">Toys</option>
+                        <option value="Entertainment" >Entertainment</option>
+                    </select><br><br>
+
+                    <label  >Month</label>
+                        <select id="month-edit" style="margin-left: 50px; width: 14%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;">
+                            <option value="" selected>---Select Month---</option>
+                            <option>January</option>
+                            <option>February</option>
+                            <option>March</option>
+                            <option>April</option>
+                            <option>May</option>
+                            <option>June</option>
+                            <option>July</option>
+                            <option>August</option>
+                            <option>September</option>
+                            <option>October</option>
+                            <option>November</option>
+                            <option>December</option>
+                        </select><br><br>
+
+                    <label>Date</label>
+                    <input id="date-edit" type="number" placeholder="Enter Date to Edit" style="margin-left: 60px; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; width: 14%; border-radius: 2px;"><br><br>
+
+                    <label >Year</label>
+                        <select id="year-edit" type="number" style="margin-left: 60px; width: 14%; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; border-radius: 2px;">
+                            <option value="" selected>---Select Year---</option>
+                            <option>2026</option>
+                            <option>2027</option>
+                            <option>2028</option>
+                        </select><br><br>
+                    
+
+                    <label>Time</label>
+                    <input id="time-edit" type="text" placeholder="Enter Time to Edit" style="margin-left: 57px; background-color: rgb(191, 249, 249); border: none; align-items: center; text-align: center; font-size: small; width: 14%; border-radius: 2px;"><br><br>
+
+                    <button type="button" id="edit-btn">Edit Expense</button><br><br>
+                </div>
+            </div>
+                </div>
+        
+
+        <script>
+            const trigger=document.getElementById('l3');
+            trigger.addEventListener('click',()=>{
+                document.documentElement.classList.toggle('sidebar-hidden');
+            })
+
+            window.addEventListener('DOMContentLoaded', async()=>{
+                const loggedInUser=localStorage.getItem('currentusername') || localStorage.getItem('currentUsername');
+                const token=localStorage.getItem('token');
+
+                const side=document.getElementById('sidebar-username');
+                const head=document.getElementById('header-username');
+
+
+                const totalex = document.getElementById('total-e');
+                const totaltra=document.getElementById('total-tra');
+                const this_month=document.getElementById('this-month-total');
+                const daily_a=document.getElementById('d-avg');
+
+
+                if (loggedInUser){
+                    side.textContent=loggedInUser;
+                    head.textContent=`${loggedInUser} 👋`;
+
+                    if (token) {
+                        try{
+                            const response=await fetch('http://127.0.0.1:8000/Dashboard',{
+                                method:"GET",
+                                headers:{
+                                    'Authorization':`Bearer ${token}`,
+                                    'Content-Type':'application/json'
+                            
+                                }
+                            });
+
+                            if (response.ok){
+                                const data = await response.json();
+                                const totalAmt=data["Total Expenses"] || 0;
+                                const totalTran=data["Transactions"] || 0;
+                                const monthAmt=data["This Month"] || 0;
+                                const dailyAvg=data["Daily Average"] || 0;
+
+                                totalex.textContent=`$${totalAmt.toFixed(2)}`;
+                                totaltra.textContent=`${totalTran.toFixed(0)}`;
+                                this_month.textContent=`$${monthAmt.toFixed(2)}`;
+                                daily_a.textContent=`$${dailyAvg.toFixed(2)}`;
+
+                                
+                            } else {
+                                totalex.textContent="$0.00";
+                                totaltra.textContent = "0";
+                                this_month.textContent="$0.00";
+                                daily_a.textContent="$0.00"
+                            }
+
+                            } catch (err) {
+                                console.error("Error communicating with backend API:", err);
+                                totalex.textContent = "⚠️ Error";
+                                console.error("Error communicating with backend API:", err);
+                                totaltra.textContent = "⚠️ Error";
+                                console.error("Error communicating with backend API:", err);
+                                this_month.textContent = "⚠️ Error";
+                                console.error("Error communicating with backend API:", err);
+                                daily_a.textContent = "⚠️ Error";
+                            }
+                        } else {
+                        totalex.textContent = "$0.00 (No Token)";
+                        totaltra.textContent = "0 (No Token)";
+                        this_month.textContent = "$0.00 (No Token)";
+                        daily_a.textContent = "$0.00 (No Token)";
+                        
+                    }
+
+                }else{
+                    side.textContent="User";
+                    head.textContent="User";
+                    totalex.textContent = "$0.00";
+                    totaltra.textContent = "0";
+                    this_month.textContent="$0.00";
+                    daily_a.textContent="$0.00";
+                }
+            })
+
+            const LO=document.getElementById('log');
+            LO.addEventListener('click',()=>{
+
+                localStorage.removeItem('token');
+                localStorage.removeItem('currentusername')
+                window.location.href="next.html"
+
+            })
+
+            window.addEventListener('DOMContentLoaded', async() =>{
+                const token=localStorage.getItem('token');
+
+                if(!token){
+                    window.location.replace('next.html');
+                    return;
+                }
+
+            })
+            const pp=document.getElementById('prof');
+            const dassh=document.getElementById('l3');
+            const vi = document.getElementById('viewE');
+
+            const dashboard = document.getElementById('dashb');
+            const profile = document.getElementById('profile');
+
+            pp.addEventListener("click", () => {
+                dashboard.style.display = "none";
+                vi.style.display = "none";
+                report_code.style.display="none";
+                edit_layout.style.display="none"; 
+
+                profile.style.display = "block";
+            });
+                
+            const UU=document.getElementById('uSername');
+            const loggedU=localStorage.getItem('currentusername') || localStorage.getItem('currentUsername');
+
+            if (loggedU){
+                UU.textContent=loggedU;
+            }
+
+            
+
+
+            const V_btn = document.getElementById('V-E');
+            const dashboa = document.getElementById('dashb');
+            const profil = document.getElementById('profile');
+            const viewe = document.getElementById('viewE');
+            const tbody = document.getElementById('p-t');
+            const aaadd = document.getElementById('addd');
+
+            if (tbody) {
+                tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;">Loading Records...</td></tr>`;
+            }
+
+            V_btn.addEventListener('click', async (event) => {
+                event.preventDefault();
+
+                const token = localStorage.getItem('token');
+                
+                if (!token) {
+                    alert("Session expired. Please log in again.");
+                    window.location.replace('next.html');
+                    return;
+                }
+
+                dashboa.style.display = "none";
+                profil.style.display = "none";
+                aaadd.style.display = "none";
+                report_code.style.display="none";
+                edit_layout.style.display="none";
+
+                category_code.style.display = "none";
+
+
+
+                viewe.style.display = "block";
+
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/View-Expenses', {
+                        method: "GET",
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Server returned HTTP state code ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    tbody.innerHTML = ""; 
+
+                    const productsArray = data.m;
+
+                    if (!productsArray || !Array.isArray(productsArray) || productsArray.length === 0) {
+                        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;">No expenses tracked yet.</td></tr>`;
+                        return;
+                    }
+
+                    productsArray.forEach(element => {
+                        const newrow = `
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 10px; text-align: left; width: 8%;">${element.id ?? ''}</td>
+                            <td style="padding: 10px; text-align: left; width: 15%;">${element.Spent_on ?? ''}</td>
+                            <td style="padding: 10px; text-align: left; width: 12%;">$${Number(element.Price ?? 0).toFixed(2)}</td>                           
+                            <td style="padding: 10px; text-align: left; width: 15%;">${element.Category ?? ''}</td>                            
+                            <td style="padding: 10px; text-align: left; width: 12%;">${element.Month ?? ''}</td>                            
+                            <td style="padding: 10px; text-align: left; width: 10%;">${element.Date ?? ''}</td>                           
+                            <td style="padding: 10px; text-align: left; width: 10%;">${element.Year ?? ''}</td>                           
+                            <td style="padding: 10px; text-align: left; width: 18%;">${element.Time ?? ''}</td>
+                         </tr>
+                               
+                        `;
+                        tbody.innerHTML += newrow;
+                    });
+
+                } catch (err) {
+                    console.error("Database view execution error processing:", err);
+                    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:red;">⚠️ Error fetching database records.</td></tr>`;
+                }
+            });
+        
+            const ddd = document.getElementById('dashb');
+            const dbtn = document.getElementById('profile');
+            const vvv = document.getElementById('viewE');
+            const ppp = document.getElementById('dash-link');
+            const adex = document.getElementById('addd');
+
+            ppp.addEventListener('click',()=>{
+
+                vvv.style.display="none";
+                dbtn.style.display="none";
+                adex.style.display="none";
+                edit_layout.style.display="none";
+                ddd.style.display="block";
+            });
+
+
+            const adbtn = document.getElementById('add-e');
+            const adexp = document.getElementById('addd');
+    
+
+            adbtn.addEventListener('click',()=>{
+
+                vvv.style.display="none";
+                dbtn.style.display="none";
+                ddd.style.display="none";
+                report_code.style.display="none";
+                edit_layout.style.display="none";
+
+                adexp.style.display="block";
+            });
+
+            const subbtn=document.getElementById('suub');
+
+            subbtn.addEventListener('click', async(event) =>{
+                event.preventDefault();
+                const token = localStorage.getItem('token');
+                
+                if (!token) {
+                    alert("Session expired. Please log in again.");
+                    window.location.replace('next.html');
+                    return;
+                }
+
+
+           
+                const addbtn = document.getElementById('add-e');
+                const adcode = document.getElementById('addd');
+
+                const sp = document.getElementById('spe_on').value;
+                const pr = document.getElementById('pri').value;
+                const catte = document.getElementById('cat').value;
+                const Monn = document.getElementById('mon').value;
+                const Datee= document.getElementById('dat').value;
+                const y = document.getElementById('yr').value;
+                const ti = document.getElementById('tim').value;
+
+           
+                if (!sp || isNaN(pr) || !Monn || isNaN(Datee) || isNaN(y) || !ti){
+                    alert("Please Fill All Properties Correctly")
+                    return;
+                }
+                try{
+                    const response=await  fetch("http://127.0.0.1:8000/Add-Expense",{
+                        method: "POST",
+                        headers: {
+                            "Authorization": `Bearer ${token}`,
+                            "Content-Type":"application/json"
+                        },
+                        body:JSON.stringify({
+                            "Spent_on":sp,
+                            "Price":parseFloat(pr),
+                            "Category":catte,
+                            "Month":Monn,
+                            "Date": parseInt(Datee),
+                            "Year":parseInt(y),
+                            "Time":ti
+                        })
+                    })
+        
+                    if(!response.ok){
+                        throw new Error("Network Validation pipeline failed due to confirm request.")
+                    }
+                
+                    const data=await response.json();
+                        alert(data.m);
+                    
+                    document.getElementById('spe_on').value="";
+                    document.getElementById('pri').value="";
+                    document.getElementById('cat').value="";
+                    document.getElementById('mon').value="";
+                    document.getElementById('dat').value="";
+                    document.getElementById('yr').value="";
+                    document.getElementById('tim').value="";
+           
+
+                }catch (error) {
+                    console.error("Trasmission Error:",Error);
+                    alert("Unable to reach backend Python server instance. Verify Uvicorn status console.")
+                }
+
+
+            });
+            
+            const category_side=document.getElementById('category-vise');
+            const category_code=document.getElementById('caTE');
+            const category_btn=document.getElementById('ask-cate');
+            const category_heading=document.getElementById('selected-category');
+            const category_select=document.getElementById('select-category');
+
+            category_side.addEventListener('click',(event) =>{
+                event.preventDefault();
+
+                vvv.style.display="none";
+                dbtn.style.display="none";
+                ddd.style.display="none";
+                adexp.style.display="none";
+                edit_layout.style.display="none";
+                report_code.style.display="none";
+                
+                category_code.style.display="block";
+            });
+
+            category_btn.addEventListener('click', async (event) => {
+                event.preventDefault();
+
+                const token = localStorage.getItem('token');
+                
+                if (!token) {
+                    alert("Session expired. Please log in again.");
+                    window.location.replace('next.html');
+                    return;
+                }
+
+                const selectedCategory =category_select.value;
+
+                if (!selectedCategory) {
+                    alert("Please select a valid category first!");
+                    return;
+                }
+                
+                category_heading.textContent=selectedCategory;
+                
+
+                const categoryTbody = category_code.querySelector('#category-t');
+                categoryTbody.innerHTML = `<tr><td colspan="8" style="text-align:center;">Filtering Records...</td></tr>`;
+
+                try {
+                    const response = await fetch(`http://127.0.0.1:8000/Category-filtering?Category=${encodeURIComponent(selectedCategory)}`, {
+                        method: "GET",
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                     if (!response.ok) {
+                        throw new Error(`Server returned HTTP state code ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    categoryTbody.innerHTML = ""; 
+
+
+                    const productsArray = data["Category-Wise"];
+
+                    if (!productsArray || !Array.isArray(productsArray) || productsArray.length === 0) {
+                        categoryTbody.innerHTML = `<tr><td colspan="8" style="text-align:center;">No expenses tracked yet.</td></tr>`;
+                        return;
+                    }
+
+                    productsArray.forEach(element => {
+                        const newrow = `
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 10px; text-align: left; width: 8%;">${element.id ?? ''}</td>
+                            <td style="padding: 10px; text-align: left; width: 15%;">${element.Spent_on ?? ''}</td>
+                            <td style="padding: 10px; text-align: left; width: 12%;">$${Number(element.Price ?? 0).toFixed(2)}</td>                           
+                            <td style="padding: 10px; text-align: left; width: 15%;">${element.Category ?? ''}</td>                            
+                            <td style="padding: 10px; text-align: left; width: 12%;">${element.Month ?? ''}</td>                            
+                            <td style="padding: 10px; text-align: left; width: 10%;">${element.Date ?? ''}</td>                           
+                            <td style="padding: 10px; text-align: left; width: 10%;">${element.Year ?? ''}</td>                           
+                            <td style="padding: 10px; text-align: left; width: 18%;">${element.Time ?? ''}</td>
+                         </tr>
+                               
+                        `;
+                        categoryTbody.innerHTML += newrow;
+                    });
+
+                } catch (err) {
+                    console.error("Database view execution error processing:", err);
+                    categoryTbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:red;">⚠️ Error fetching database records.</td></tr>`;
+                }
+
+            });
+
+            const report_btn=document.getElementById('Report-wise');
+            const report_code=document.getElementById('report-wise');
+            const mon_yr_table=document.getElementById('Month-Yr');
+            const yr_mon_table=document.getElementById('Yr-Month');
+
+            const mon_report=document.getElementById('month-report');
+            const yr_report=document.getElementById('year-report');
+            const mon_table=document.getElementById('mon-table-p');
+            const yr_table=document.getElementById('yr-table-p');
+
+            const mon_blank=document.getElementById('month-blank');
+            const yr_blank=document.getElementById('year-blank');
+
+            const month_total=document.getElementById('mon-total');
+            const yr_total=document.getElementById('yr-total');
+
+            
+
+
+
+
+            report_btn.addEventListener('click', async(event) =>{
+                event.preventDefault();
+
+                vvv.style.display="none";
+                dbtn.style.display="none";
+                ddd.style.display="none";
+                adexp.style.display="none";
+                category_code.style.display="none";
+                edit_layout.style.display="none";
+
+                report_code.style.display="block";
+            })
+
+            mon_report.addEventListener('click', async (event) => {
+                event.preventDefault();
+
+                yr_table.style.display="none";
+                mon_table.style.display="block";
+
+                const token = localStorage.getItem('token');
+                
+                if (!token) {
+                    alert("Session expired. Please log in again.");
+                    window.location.replace('next.html');
+                    return;
+                }
+
+                
+            
+                
+                const selectedMon = document.getElementById('select-mon').value;
+                mon_blank.textContent=selectedMon;
+                const Reportbody = report_code.querySelector('#Month-Yr');
+                Reportbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">Filtering Records...</td></tr>`;
+
+                
+
+                
+                try {
+                    const response = await fetch(`http://127.0.0.1:8000/Monthly-Report?month=${encodeURIComponent(selectedMon)}`, {
+                        method: "GET",
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                     if (!response.ok) {
+                        throw new Error(`Server returned HTTP state code ${response.status}`);
+                    }
+
+                    
+                    const data = await response.json();
+                    Reportbody.innerHTML = ""; 
+
+                    const productsArray = data["Category Wise"];
+
+                    if (!productsArray || Object.keys(productsArray).length===0){
+                        Reportbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">No expenses tracked yet.</td></tr>`;
+                        return;
+                    }
+
+                    let grandtotal=0;
+                    let count = 1;
+
+                    for (const [category, total] of Object.entries(productsArray)) {
+                        grandtotal +=Number(total);
+                        const newrow = `
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 10px; text-align: left; width: 8%;">${count}</td>
+                            <td style="padding: 10px; text-align: left; width: 15%;">${category}</td>
+                            <td style="padding: 10px; text-align: left; width: 12%;">$${Number(total).toFixed(2)}</td>                           
+                         </tr>
+                               
+                        `;
+                        Reportbody.innerHTML += newrow;
+                        count++;
+
+                        month_total.textContent=`$${grandtotal.toFixed(2)}`;
+                    };
+
+                } catch (error) {
+                    console.error("Database view execution error processing:", error);
+                    Reportbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:red;">⚠️ Error fetching database records.</td></tr>`;
+                }
+
+            });
+
+            report_btn.addEventListener('click', async(event) =>{
+                event.preventDefault();
+
+                vvv.style.display="none";
+                dbtn.style.display="none";
+                ddd.style.display="none";
+                adexp.style.display="none";
+                category_code.style.display="none";
+                edit_layout.style.display="none";
+
+            
+                report_code.style.display="block";
+            })
+
+            yr_report.addEventListener('click', async (event) => {
+                event.preventDefault();
+
+                mon_table.style.display="none";
+                yr_table.style.display="block";
+
+                const token = localStorage.getItem('token');
+                
+                if (!token) {
+                    alert("Session expired. Please log in again.");
+                    window.location.replace('next.html');
+                    return;
+                }
+                
+                const selectedyr= document.getElementById('select-yr').value;
+                yr_blank.textContent=selectedyr;
+                const Reportyrbody = report_code.querySelector('#Yr-Month');
+                Reportyrbody.innerHTML = `<tr><td colspan="8" style="text-align:center;">Filtering Records...</td></tr>`;
+
+                
+                try {
+                    const response = await fetch(`http://127.0.0.1:8000/Yearly-Report?year=${encodeURIComponent(selectedyr)}`, {
+                        method: "GET",
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                     if (!response.ok) {
+                        throw new Error(`Server returned HTTP state code ${response.status}`);
+                    }
+
+                    
+                    const data = await response.json();
+                    Reportyrbody.innerHTML = ""; 
+
+                    const productsArray = data["Category-Wise"];
+
+                    if (!productsArray || Object.keys(productsArray).length===0){
+                        Reportyrbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">No expenses tracked yet.</td></tr>`;
+                        return;
+                    }
+
+                    let g_t=0;
+                    let count = 1;
+
+                     for (const [category, total] of Object.entries(productsArray)) {
+                        g_t +=Number(total);
+                        const newrow = `
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 10px; text-align: left; width: 8%;">${count}</td>
+                            <td style="padding: 10px; text-align: left; width: 15%;">${category}</td>
+                            <td style="padding: 10px; text-align: left; width: 12%;">$${Number(total).toFixed(2)}</td>                           
+                         </tr>
+                               
+                        `;
+                        Reportyrbody.innerHTML += newrow;
+                        count++;
+    
+                    };
+
+                    yr_total.textContent=`$${g_t.toFixed(2)}`;
+
+                } catch (error) {
+                    console.error("Database view execution error processing:", error);
+                    Reportyrbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:red;">⚠️ Error fetching database records.</td></tr>`;
+                }
+
+            });
+
+            const delete_user_account=document.getElementById('delete-account');
+
+            delete_user_account.addEventListener('click', async(event)=>{
+                event.preventDefault();
+
+                const confirmDelete = confirm(
+                    "Are you sure you want to delete your account?\nThis action cannot be undone."
+                );
+
+                if (!confirmDelete) {
+                    return;
+                }
+
+            
+
+                
+                const token = localStorage.getItem('token');
+                
+                if (!token) {
+                    alert("Session expired. Please log in again.");
+                    window.location.replace('next.html');
+                    return;
+                }
+
+          
+                try{
+                    const response=await fetch('http://127.0.0.1:8000/Delete-User',{
+                        method:"DELETE",
+                        headers:{
+                                'Authorization':`Bearer ${token}`,
+                                'Content-Type':'application/json'
+                            }
+                        });
+                    
+                        const data=await response.json();
+
+                        if (response.ok){
+                             alert(data.message || "Account deleted successfully");
+
+                            localStorage.removeItem("token");
+                            localStorage.removeItem("currentusername");
+                            localStorage.removeItem("currentUsername");
+
+                            window.location.href = "next.html";
+                        } else {
+                            alert(data.detail || "Failed to delete account");
+                        }
+
+                    } catch (error) {
+                        console.error(error);
+                        alert("Server connection failed");
+                    }
+                });
+
+               
+                const delete_spent_on = document.getElementById('delete-expense');
+
+                delete_spent_on.addEventListener('click', async (event) => {
+                    event.preventDefault();
+
+                    const id_value = document.getElementById('id-input').value;
+
+                    if (!id_value) {
+                        alert("Please enter an Expense ID");
+                        return;
+                    }
+
+                    const token = localStorage.getItem('token');
+
+                    if (!token) {
+                        alert("Session expired. Please log in again.");
+                        window.location.replace('next.html');
+                        return;
+                    }
+
+                    try {
+                        const response = await fetch(
+                            `http://127.0.0.1:8000/Delete-Spent_on?id=${encodeURIComponent(id_value)}`,
+                            {
+                                method: "DELETE",
+                                headers: {
+                                    Authorization: `Bearer ${token}`,
+                                    "Content-Type": "application/json"
+                                }
+                            }
+                        );
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+                            alert(data.m || "Expense deleted successfully");
+
+                            
+                            
+                        } else {
+                            alert(data.detail || "Delete failed");
+                        }
+
+                    } catch (error) {
+                        console.error(error);
+                        alert("Server connection failed");
+                    }
+                });                            
+                                                    
+
+                const edit_layout=document.getElementById('edit-expense');
+                const open_setting=document.getElementById('manage-expense');
+                const edit_expense=document.getElementById('edit');
+                const edit_full=document.getElementById('edit-full');
+                const edit_button=document.getElementById('edit-btn');
+
+                open_setting.addEventListener('click',async(event)=>{
+                    event.preventDefault();
+
+                    
+                    vvv.style.display="none";
+                    dbtn.style.display="none";
+                    ddd.style.display="none";
+                    adexp.style.display="none";
+                    category_code.style.display="none";
+                    report_code.style.display="none";
+
+                    edit_layout.style.display="block";
+
+                })
+
+                const id_num_element = document.getElementById('id-to-edit');
+                const spent_edit_element=document.getElementById('spent-edit');
+                const price_edit_element=document.getElementById('price-edit');
+                const category_edit_element=document.getElementById('category-edit');
+                const month_edit_element=document.getElementById('month-edit');
+                const date_edit_element=document.getElementById('date-edit');
+                const time_edit_element=document.getElementById('time-edit');
+                const year_edit_element=document.getElementById('year-edit');
+                
+                
+                
+                
+                edit_button.addEventListener('click', async(event) =>{
+                    event.preventDefault();
+
+                    const id_num = parseInt(id_num_element.value);
+                    const spent_edit = spent_edit_element.value;
+                    const price_edit = parseFloat(price_edit_element.value);
+                    const category_edit = category_edit_element.value;
+                    const month_edit = month_edit_element.value;
+                    const date_edit = parseInt(date_edit_element.value);
+                    const time_edit = time_edit_element.value;
+                    const year_edit = year_edit_element.value;
+
+                
+
+                    if (!id_num) {
+                        alert("Please enter an Expense ID");
+                        return;
+                    }
+
+                    const token = localStorage.getItem('token');
+
+                    if (!token) {
+                        alert("Session expired. Please log in again.");
+                        window.location.replace('next.html');
+                        return;
+                    }
+      
+                    const body = {};
+
+                    if (spent_edit.trim() !== "") body.Spent_on = spent_edit;
+                    if (!isNaN(price_edit)) body.Price = price_edit;
+                    if (category_edit) body.Category = category_edit;
+                    if (month_edit) body.Month = month_edit;
+                    if (!isNaN(date_edit)) body.Date = date_edit;
+                    if (!isNaN(year_edit)) body.Year = parseInt(year_edit);
+                    if (time_edit.trim() !== "") body.Time = time_edit;
+
+                    try {
+       
+                        const response = await fetch(
+                            `http://127.0.0.1:8000/Edit-Expense?id=${encodeURIComponent(id_num)}`,
+                            {
+                                method: "PUT",
+                                headers: {
+                                    "Authorization": `Bearer ${token}`,
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(body)
+                            }
+                        );
+
+                        const data = await response.json();
+                        console.log(data);
+
+                        if (response.ok) {
+                            alert(data.m || "Expense Edited successfully");
+
+                            id_num_element.value = "";
+                            spent_edit_element.value = "";
+                            price_edit_element.value = "";
+                            date_edit_element.value = "";
+                            time_edit_element.value = ""     
+                            
+                            
+                        } else {
+                            alert(data.detail || "Edit failed");
+                        }
+
+                    } catch (error) {
+                        console.error(error);
+                        alert("Server connection failed");
+                    }
+                });
+                     
+
+                            
+
+
+                        </script>
+                    </body>
+
+                </head>

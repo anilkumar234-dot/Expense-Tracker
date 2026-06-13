@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense.login</title>
+    <style>
+        body {
+            background-image: url(ll.png);
+             background-color: #bbf4fd;
+            background-size:460px;
+            background-repeat:no-repeat;
+            background-position:1105px;
+            background-position-y:bottom 0.5px;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            
+            font-family: sans-serif;
+        }
+        .side-h {
+            border: 1px solid black;
+            
+            background-image: url(ex.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+           
+            width: 500px;
+            height: 730px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-left: -50.5px;
+            
+        }
+        .login-box {
+            border: 1px solid #ffffff;
+            border-radius: 12px;
+            background-color: rgba(208, 250, 208, 0.95);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            width: 450px;
+            height: 550px;
+            padding: 30px;
+            box-sizing: border-box;
+
+            margin-left: 50px;
+            margin-top: 70px;
+        }
+        .m-box {
+            display: none;
+            border: 1px solid green;
+            border-radius: 6px;
+            width: 100%;
+            margin: 15px 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        input {
+            box-sizing: border-box;
+        }
+
+        .ep{
+            border:none;
+            background-color: rgb(9, 4, 60);
+            background-image: url(ex.png);
+            background-position-y:top -250px ;
+            height: 730px;
+            width: 150px;
+            padding: -10px;
+            margin-right: 50px;
+
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+
+            font-weight: bold;
+            font-size: 45px
+            
+        }
+        .gl-text{
+            color: green;
+            text-shadow: 0 0 5px #020f09,
+            0 0 10px #021408,
+            0 0 40px #15803d,
+            0 0 60px #166534;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="ep">
+        <h1 class="gl-text" style="margin-left: 27px;">Expense Tracker</h1>
+    </div>
+    <div class="side-h">
+        <h1 style="margin-bottom: -48px; margin-left: 30px;">💼</h1>
+        <h2 style="margin-left: 80px; color: aliceblue;">Expense <span style="color: green;">Tracker</span></h2>
+        <h3 style="margin-left: 60px; margin-top: 70px; color: aliceblue;">Take Control of </h3>
+        <h3 style="margin-left: 60px; margin-top: -20px; color: green;">Your Expenses</h3>
+
+        <p style="margin-left: 60px; color: aliceblue;">Track, manage and analyze your </p>
+        <p style="margin-left: 60px; margin-top: -15px; color: aliceblue;">expenses in a smart and simple way.</p>
+        
+        <h1 style="margin-left: 55px;">📊 </h1>
+        <h4 style="margin-left: 108px; margin-top: -58px; font-size: smaller; color: white;">Track Expenses</h4>
+        <p style="margin-left: 108px; margin-top: -14px; font-size: small; color: white;">Add and track your daily expenses.</p>
+
+        <h1 style="margin-left: 55px;">📋</h1>
+        <h4 style="margin-left: 108px; margin-top: -58px; font-size: smaller; color: aliceblue;">Track Expenses</h4>
+        <p style="margin-left: 108px; margin-top: -15px; font-size: small; color: aliceblue;">Get monthly and yearly insights.</p>
+
+        <h1 style="margin-left: 58px;">🛡️</h1>
+        <h4 style="margin-left: 108px; margin-top: -59px; font-size: smaller; color: aliceblue;">Secure & Private</h4>
+        <p style="margin-left: 108px; margin-top: -15px; font-size: small; color: white;">Your data is safe and encrypted.</p>
+    </div>
+
+    <form class="login-box" id="loginForm">
+        <p style="font-size: small; margin-left: 43%; margin-top: -20px;">Don't have an account? <a href="expense.html" style="color: blue; text-decoration: none; font-weight: bold;"> Register</a></p>
+        <h1 style="border: 1px solid black; margin: 40px auto 10px auto; width: 60px; height: 60px; background-color: rgb(110, 188, 110); border-radius:20px; border-style:dashed; font-size: 40px; text-align: center; line-height: 60px; margin-top: 100px;">👤</h1>
+        <h3 style="text-align: center;">WELCOME BACK!</h3>
+        <p style="margin-top: -10px; text-align: center; margin-bottom: 30px; font-size: 14px;">Login to your Expense Tracker account</p>
+        
+        <label style="margin-left: 10%;">Username:</label><br>
+        <input type="text" id="loginUser" placeholder="👤 Enter your name" required style="margin-left: 10%; font-size: small; width: 80%; padding: 10px; border-radius: 10px; margin-bottom:15px; border: 0.1px solid rgb(190, 188, 188);"><br>
+        
+        <label style="margin-left: 10%;">Password:</label><br>
+        <input type="password" id="loginPass" placeholder="🔒 Enter your password" required style="margin-left: 10%; width: 80%; padding: 10px; border-radius: 10px; border: 0.1px solid rgb(190, 188, 188);"><br>
+        
+        <div class="m-box" id="loginMbox"></div>
+        <button type="submit" style="width: 80%; margin-left: 10%; margin-top: 20px; padding: 10px; border-radius: 10px; background-color: green; color: white; cursor: pointer; font-size: 16px; font-weight: bold; border: none;">Login</button>
+        <p style="font-size: small; text-align: center; margin-top: 15px; color: gray;">Your data is secure and encrypted</p>
+    </form>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const u = document.getElementById("loginUser").value;
+            const p = document.getElementById("loginPass").value;
+            const msgbox = document.getElementById("loginMbox");
+
+            msgbox.style.display = "block";
+            msgbox.style.backgroundColor = "#e0f2fe";
+            msgbox.style.borderColor = "#0284c7";
+            msgbox.innerHTML = "⏳ Authenticating...";
+
+            try {
+                const response = await fetch(`http://127.0.0.1:8000/login?username=${encodeURIComponent(u)}&password=${encodeURIComponent(p)}`, {
+                    method: "GET"
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    msgbox.style.backgroundColor = "#d8f3dc";
+                    msgbox.style.borderColor = "#40916c";
+                    msgbox.innerHTML = `✅ ${data.message}! Access granted.`;
+                    
+                    localStorage.setItem('currentusername',u)
+                    localStorage.setItem("token", data.access_token);
+
+                    setTimeout(() => {
+                        window.location.href = "main_dashbord.html";
+                    }, 4000);
+                    
+            
+                } else {
+                    msgbox.style.backgroundColor = "#ffe3e3";
+                    msgbox.style.borderColor = "#e53e3e";
+                    msgbox.innerHTML = "❌ " + (data.detail || "Login failed");
+                }
+            } catch(err) {
+                msgbox.style.backgroundColor = "#ffe3e3";
+                msgbox.style.borderColor = "#e53e3e";
+                msgbox.innerHTML = "❌ Network error connecting to server.";
+            }
+        });
+    </script>
+</body>
+</html>
