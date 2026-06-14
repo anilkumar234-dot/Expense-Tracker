@@ -58,11 +58,48 @@ ET/
 
 ├── next.html
 
-├── profile.html
+ 
+├──  screenshots/
 
-├── images
+│       ├── login.png
 
-└── databases
+│       ├── dashboard.png
+
+│       └── add-expense.png
+
+
+## screenshots
+
+### Register Page
+![Register Page](screenshots/registerPage.png)
+
+### Login Page
+![Login Page](screenshots/loginPage.png)
+
+### Dashboard
+![Dashboard](screenshots/Dashboard.png)
+
+### Add-Expense
+![Add-Expense](screenshots/Add-Expense.png)
+
+### View-Expense
+![View-Expense](screenshots/View-Expense.png)
+
+### Category-Wise
+![Category-Wise](screenshots/Category-Wise.png)
+
+### Manage
+![Manage](screenshots/Manage.png)
+
+### Profile
+![Profile](screenshots/Profile.png)
+
+### Reports
+![Reports](screenshots/Reports.png)
+
+
+
+
 
 ## Installation
 
