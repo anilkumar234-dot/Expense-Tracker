@@ -40,7 +40,6 @@ lru-dict==1.4.1
 multidict==6.7.1
 mysqlclient==2.2.0
 parsimonious==0.10.0
-Pillow==10.1.0
 propcache==0.4.1
 protobuf==7.34.0
 py-ecc==8.0.0
