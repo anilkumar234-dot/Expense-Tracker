@@ -162,3 +162,10 @@ Anil Kumar Rasuri
 
 GitHub:
 https://github.com/anilkumar234-dot
+
+Live API:
+
+Backend API is deployed on Render.
+
+API Documentation:
+https://expense-tracker-g3vm.onrender.com/docs
